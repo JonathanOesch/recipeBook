@@ -1,0 +1,23 @@
+import { NgModule } from "@angular/core";
+
+// Components
+import { SigninComponent } from "./signin/signin.component";
+import { SignupComponent } from "./signup/signup.component";
+
+// Modules
+import { SharedModule } from "../shared/shared.module";
+import { AuthRoutingModule } from "./auth-routing.module";
+
+@NgModule({
+    declarations: [
+        SigninComponent,
+        SignupComponent
+    ],
+    imports: [
+        SharedModule,
+        AuthRoutingModule
+    ]
+})
+export class AuthModule {
+
+}

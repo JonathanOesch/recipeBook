@@ -1,0 +1,159 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+            class="btn btn-success" 
+            type="submit"
+            [disabled]="recipeForm.invalid">Save</button>
+          <button 
+            class="btn btn-danger" 
+            type="button"
+            (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">ImagePath URL</label>
+            <input 
+              type="text"
+              id="imagePath"
+              class="form-control"
+              formControlName="imagePath"
+              #imagePath>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea 
+              type="text" 
+              id="description" 
+              class="form-control"
+              rows="6"
+              formControlName="description"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="ing">Ingredients</label>
+        <div 
+          class="col-xs-12" 
+          formArrayName="ingredients"
+          name="ing">
+          <div 
+            class="row"
+            *ngFor="let ingredientCtrl of getControls(); let i = index"
+            [formGroupName]="i"
+            id="recipeIng">
+            <div class="col-xs-5">
+              <input 
+                type="text" 
+                class="form-control"
+                placeholder="New Ingredient"
+                formControlName="name">
+            </div>
+            <div class="col-xs-2">
+              <select  
+                class="form-control"
+                id="amount"
+                name="amount"
+                placeholder="#"
+                formControlName="amount">
+                <option *ngFor="let amt of amounts" value="{{ amt }}">{{ amt | fraction }}</option>
+              </select>
+            </div>
+            <div class="col-xs-3">
+              <select
+                class="form-control"
+                formControlName="measure">
+                <option 
+                  *ngFor="let measurement of measurements"
+                  value="{{measurement}}">
+                  {{ measurement }}
+                </option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <button 
+                type="button" 
+                class="btn btn-danger"
+                (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button 
+                type="button"
+                class="btn btn-success"
+                (click)="onAddIngredient()">Add Ingredient</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <label for="directions">Directions</label>
+        <div 
+          class="col-xs-12"
+          formArrayName="steps"
+          name="directions">
+          <div 
+            class="row"
+            *ngFor="let stepCtrl of getStepsControls(); let i = index"
+            [formGroupName]="i"
+            id="recipeSteps">
+            <div class="col-xs-2">
+              <input 
+                type="number" 
+                formControlName="stepNum" 
+                class="form-control"
+                readonly>
+            </div>
+            <div class="col-xs-8">
+              <input 
+                type="text"
+                class="form-control" 
+                placeholder="Enter next step"
+                formControlName="description">
+            </div>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                name="deleteStep"
+                (click)="onDeleteStep(i)">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="onAddStep()">Add Step</button>
+      </div>
+    </form>
+  </div>
+</div>
