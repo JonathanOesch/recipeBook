@@ -78,7 +78,7 @@ export class RecipeEditComponent implements OnInit, AfterContentInit {
               'name': new FormControl(ingredient.name, Validators.required),
               'amount': new FormControl(ingredient.amount, [
                 Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/)
+                Validators.pattern( /^\d*\.?\d*$/)
               ]),
               'measure': new FormControl( ingredient.measure )
             })
@@ -120,7 +120,7 @@ export class RecipeEditComponent implements OnInit, AfterContentInit {
   }
 
   onAddStep () {
-    console.log('start of onAddStep: ' + this.stepsLength);
+    // console.log('start of onAddStep: ' + this.stepsLength);
     if (this.deletedStep) {
       (<FormArray>this.recipeForm.get('steps')).push(
         new FormGroup({

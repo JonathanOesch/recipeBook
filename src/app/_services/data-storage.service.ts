@@ -41,7 +41,7 @@ export class DataStorageService {
     } )
       .pipe(map(
         (recipes) => {
-          console.log(recipes);
+          // console.log(recipes);
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
