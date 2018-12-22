@@ -20,7 +20,8 @@ export class DataStorageService {
   constructor(
     private httpClient: HttpClient, 
     private recipeService: RecipesService,
-    private authService: AuthService) { }
+    private authService: AuthService
+  ) { }
 
   storeRecipes() {
     // return this.httpClient.put( 
