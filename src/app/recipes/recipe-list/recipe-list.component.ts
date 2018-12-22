@@ -25,7 +25,6 @@ export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy 
     private recipeService: RecipesService, 
     private router: Router,
     private route: ActivatedRoute,
-    private dataStorageService: DataStorageService
   ) { }
 
   ngAfterContentInit() {
@@ -40,7 +39,6 @@ export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy 
           this.recipes = recipes;
         }
       );
-    this.dataStorageService.getRecipes();
   }
 
   onNewRecipe() {
