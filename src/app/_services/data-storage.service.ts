@@ -40,12 +40,16 @@ export class DataStorageService {
       observe: 'body',
       responseType: 'json'
     } )
-      .pipe(map(
+      .pipe(
+        map(
         (recipes) => {
           // console.log(recipes);
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
+            }
+            if (!recipe['steps']) {
+              recipe['steps'] = [];
             }
           }
           return recipes;

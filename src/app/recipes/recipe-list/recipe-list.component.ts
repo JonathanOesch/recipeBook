@@ -28,11 +28,10 @@ export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy 
   ) { }
 
   ngAfterContentInit() {
-    this.recipes = this.recipeService.getRecipes();    
+    // this.recipes = this.recipeService.getRecipes();    
   }
 
   ngOnInit() {
-    this.dataStorageService.getRecipes();
     this.subscription = this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
