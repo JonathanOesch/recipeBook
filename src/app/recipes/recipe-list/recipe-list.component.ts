@@ -38,6 +38,7 @@ export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy 
           this.recipes = recipes;
         }
       );
+    this.dataStorageService.getRecipes();
   }
 
   onNewRecipe() {
