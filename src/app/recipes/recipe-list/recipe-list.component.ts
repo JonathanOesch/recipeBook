@@ -25,15 +25,13 @@ export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy 
     private recipeService: RecipesService, 
     private router: Router,
     private route: ActivatedRoute,
-    private dataStorageService: DataStorageService
   ) { }
 
   ngAfterContentInit() {
-    this.recipes = this.recipeService.getRecipes();    
+    // this.recipes = this.recipeService.getRecipes();    
   }
 
   ngOnInit() {
-    this.dataStorageService.getRecipes();
     this.subscription = this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
