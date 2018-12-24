@@ -33,7 +33,7 @@ export class ShoppingListService {
     } else {
       const adjustedAmount = +this.adjustAmount( index, ingredient );
       this.ingredients[index].amount += adjustedAmount;
-      console.log( 'new amount: ' + this.ingredients[ index ].amount);
+      // console.log( 'new amount: ' + this.ingredients[ index ].amount);
       this.ingredients[index].measure = this.ingredientsService.convertMeasurements(this.ingredients[index], ingredient);
     }
     this.ingredientsChanged.next(this.ingredients.slice());
@@ -55,7 +55,7 @@ export class ShoppingListService {
       }
       
     }
-    console.log( 'new amount: ' + this.ingredients[ index ].amount);
+    // console.log( 'new amount: ' + this.ingredients[ index ].amount);
 
     return otherIngredient.amount;
   }
