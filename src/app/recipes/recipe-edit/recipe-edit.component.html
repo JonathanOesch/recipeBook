@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <button 
             class="btn btn-success" 
             type="submit"
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="name">Name</label>
             <input 
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="imagePath">ImagePath URL</label>
             <input 
@@ -39,12 +39,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <img [src]="imagePath.value" class="img-responsive">
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
           <div class="form-group">
             <label for="description">Description</label>
             <textarea 
@@ -59,7 +59,7 @@
       <div class="row">
         <label for="ing">Ingredients</label>
         <div 
-          class="col-xs-12" 
+          class="col-12" 
           formArrayName="ingredients"
           name="ing">
           <div 
@@ -67,14 +67,14 @@
             *ngFor="let ingredientCtrl of getControls(); let i = index"
             [formGroupName]="i"
             id="recipeIng">
-            <div class="col-xs-5">
+            <div class="col-4 col-sm-5">
               <input 
                 type="text" 
                 class="form-control"
                 placeholder="New Ingredient"
                 formControlName="name">
             </div>
-            <div class="col-xs-2">
+            <div class="col-3 col-sm-2">
               <select  
                 class="form-control"
                 id="amount"
@@ -84,7 +84,7 @@
                 <option *ngFor="let amt of amounts" value="{{ amt }}">{{ amt | fraction }}</option>
               </select>
             </div>
-            <div class="col-xs-3">
+            <div class="col-3">
               <select
                 class="form-control"
                 formControlName="measure">
@@ -95,7 +95,7 @@
                 </option>
               </select>
             </div>
-            <div class="col-xs-2">
+            <div class="col-2">
               <button 
                 type="button" 
                 class="btn btn-danger"
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-12">
               <button 
                 type="button"
                 class="btn btn-success"
@@ -116,7 +116,7 @@
       <div class="row">
         <label for="directions">Directions</label>
         <div 
-          class="col-xs-12"
+          class="col-12"
           formArrayName="steps"
           name="directions">
           <div 
@@ -124,21 +124,21 @@
             *ngFor="let stepCtrl of getStepsControls(); let i = index"
             [formGroupName]="i"
             id="recipeSteps">
-            <div class="col-xs-2">
+            <div class="col-3 col-sm-2">
               <input 
                 type="number" 
                 formControlName="stepNum" 
                 class="form-control"
                 readonly>
             </div>
-            <div class="col-xs-8">
+            <div class="col-7 col-sm-8">
               <input 
                 type="text"
                 class="form-control" 
                 placeholder="Enter next step"
                 formControlName="description">
             </div>
-            <div class="col-xs-2">
+            <div class="col-2">
               <button
                 type="button"
                 class="btn btn-danger"

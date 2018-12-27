@@ -1,13 +1,17 @@
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-4">
         <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+    </div>
+    <div class="col-8">
+        <input class="form-control" [(ngModel)]="searchText" placeholder="Enter recipe name">
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12">
         <app-recipe-item 
-            *ngFor="let recipeElement of recipes; let i = index"
+            *ngFor="let recipeElement of recipes | filterRecipe: searchText; let i = index"
             [recipe]="recipeElement"
-            [index]="i"></app-recipe-item>
+            [index]="i"
+            ></app-recipe-item>
     </div>
 </div>
