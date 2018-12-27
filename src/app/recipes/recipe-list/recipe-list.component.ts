@@ -19,6 +19,7 @@ import { DataStorageService } from 'src/app/_services/data-storage.service';
 export class RecipeListComponent implements OnInit, AfterContentInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
+  searchText: string;
 
   constructor(
     private dataStorageService: DataStorageService,
