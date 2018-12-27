@@ -48,6 +48,11 @@ export class RecipesService {
 
   setRecipes ( recipes: Recipe[] ) {
     this.recipes = recipes;
+    this.recipes.sort((left, right): number => {
+      if (left.name < right.name) return -1;
+      if (left.name > right.name) return 1;
+      return 0;
+    });
     this.recipesChanged.next( this.recipes.slice() );
   }
 

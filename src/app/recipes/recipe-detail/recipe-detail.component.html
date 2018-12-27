@@ -1,41 +1,47 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <img [src]="recipe.imagePath"
          alt="{{ recipe.name }}" 
          class="img-responsive">
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <h1>{{ recipe.name }}</h1>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <div 
       class="btn-group"
-      appDropdown>
-      <button type="button" 
-              class="btn btn-primary dropdown-toggle">
+      >
+      <button 
+        type="button"
+        id="manageRecipe"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="true"
+        class="btn btn-primary dropdown-toggle"
+        appDropdown>
         Manage Recipe
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu">
-        <li><a (click)="onAddToShoppingList()" style="cursor: pointer">Shopping List</a></li>
-        <li><a (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a (click)="onDeleteRecipe()">Delete Recipe</a></li>
+      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="manageRecipe">
+        <li><a class="dropdown-item" (click)="onAddToShoppingList()" style="cursor: pointer">Shopping List</a></li>
+        <li><a class="dropdown-item" (click)="onEditRecipe()">Edit Recipe</a></li>
+        <li><a class="dropdown-item" (click)="onDeleteRecipe()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     {{ recipe.description }}
   </div>
 </div>
 <hr>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <strong>Ingredients</strong>
     <ul class="list-group">
       <li 
@@ -47,7 +53,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <strong>Directions</strong>
     <ul class="list-group">
       <li 
