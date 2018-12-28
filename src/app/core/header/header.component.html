@@ -3,8 +3,18 @@
     <div class="navbar-header">
       <a routerLink="/"
          class="navbar-brand">Recipe Book</a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+        (click)="toggleNavbar()"><span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-    <div class="collapse navbar-collapse">
+    <div 
+      class="collapse navbar-collapse" 
+      id="navbarCollapse"
+      [ngClass]="{ 'show': navbarOpen }">
       <ul class="nav navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/recipes">Recipes</a>

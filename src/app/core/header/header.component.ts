@@ -13,6 +13,7 @@ import { DataStorageService } from 'src/app/_services/data-storage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  navbarOpen: boolean = false;
 
   constructor(
     private dataStorageService: DataStorageService,
@@ -36,6 +37,10 @@ export class HeaderComponent {
 
   isAuthenticated() {
     return this.authService.isAuthenticated();
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
 }
