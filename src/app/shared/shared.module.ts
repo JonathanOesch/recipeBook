@@ -2,6 +2,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 
+import { ToastModule } from "primeng/toast";
+
 // Directives
 import { DropDownDirective } from "../_directives/dropdown.directive";
 import { PluralPipes } from "../_pipes/plural.pipes";
@@ -13,7 +15,7 @@ import { FilterPipe } from "../_pipes/filterRecipe.pipes";
         DropDownDirective,
         PluralPipes,
         FractionPipes,
-        FilterPipe
+        FilterPipe,
     ],
     exports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { FilterPipe } from "../_pipes/filterRecipe.pipes";
         DropDownDirective,
         PluralPipes,
         FractionPipes,
-        FilterPipe
+        FilterPipe,
+        ToastModule
     ]
 })
 export class SharedModule {
