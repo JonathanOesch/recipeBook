@@ -30,6 +30,7 @@ export class RecipesService {
 
   addRecipe ( recipe: Recipe ) {
     this.recipes.push( recipe );
+    this.sortRecipes();
     this.recipesChanged.next( this.recipes.slice() );
   }
 
@@ -48,16 +49,27 @@ export class RecipesService {
 
   setRecipes ( recipes: Recipe[] ) {
     this.recipes = recipes;
-    this.recipes.sort((left, right): number => {
-      if (left.name < right.name) return -1;
-      if (left.name > right.name) return 1;
-      return 0;
-    });
+    this.sortRecipes();
     this.recipesChanged.next( this.recipes.slice() );
+  }
+
+  private sortRecipes() {
+    this.recipes.sort( ( left, right ): number => {
+      if ( left.name.toUpperCase() < right.name.toUpperCase() ) return -1;
+      if ( left.name.toUpperCase() > right.name.toUpperCase() ) return 1;
+      return 0;
+    } );
+
+    let idCount = 0;
+
+    for(let recipe of this.recipes) {
+      recipe.id = idCount++;
+    }
   }
 
   updateRecipe ( index: number, newRecipe: Recipe ) {
     this.recipes[index] = newRecipe;
+    this.sortRecipes();
     this.recipesChanged.next( this.recipes.slice() );
   }
 

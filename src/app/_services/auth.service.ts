@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
+import { MessagesService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,15 @@ export class AuthService {
 
   constructor(
     private router: Router, 
-    private location: Location) { }
+    private location: Location,
+    private messagesService: MessagesService) { }
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error);
+        }
       )
   }
 
@@ -30,10 +34,14 @@ export class AuthService {
             .then(
               (token: string) => this.token = token
             )
+          this.messagesService.addNotification( 'success', 'Login', 'Login successful' );
         }
       )
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.messagesService.addNotification( 'error', 'Login', 'Login failed' );
+        }
       )
   }
 
@@ -41,6 +49,7 @@ export class AuthService {
     firebase.auth().signOut();
     this.token = null;
     this.router.navigate(['/signin']);
+    this.messagesService.addNotification( 'success', 'Logout', 'Logout successful' );
   }
 
   getToken() {

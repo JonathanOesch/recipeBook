@@ -1,9 +1,10 @@
 <app-header></app-header>
 <div class="container">
-  <p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+  <toast-message></toast-message>
   <div class="row">
     <div class="col-md-12">
-        <router-outlet></router-outlet>
+      <!-- <button type="button" class="btn btn-success" (click)="testToast()">Test</button> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
