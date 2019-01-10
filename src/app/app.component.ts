@@ -1,19 +1,17 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import * as firebase from 'firebase';
-import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [MessageService]
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterContentInit {
+export class AppComponent implements OnInit {
   title = 'Recipes';
   loadedFeature = 'recipe';
 
-  constructor(private messageService: MessageService) { }
+  constructor() { }
 
   ngOnInit() {
     firebase.initializeApp({
@@ -22,13 +20,11 @@ export class AppComponent implements OnInit, AfterContentInit {
     });
   }
 
-  ngAfterContentInit() {
-    console.log('AfterContentInit ran ...');
-    this.messageService.add( { severity: 'success', summary: 'Test Toast', detail: 'Test' } );
-    console.log(this.messageService);
-  }
-
   onNavigate(feature: string) {
     this.loadedFeature = feature;
   }
+
+  // testToast() {
+  //   this.messageService.add( { severity: 'success', summary: 'Test Toast', detail: 'Test' } );
+  // }
 }

@@ -27,7 +27,6 @@ export class RecipeDetailComponent implements OnInit {
         (params: Params) => {
           this.id =+params['id'];
           this.recipe = this.recipesService.getRecipe(this.id);
-          // console.log('steps: ' + this.recipe.steps);
         }
       )
   }

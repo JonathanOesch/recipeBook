@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 import { Recipe } from '../_models/recipe.model';
 
 // Services
-import { AuthService } from './auth.service';
 import { RecipesService } from './recipes.service';
 
 
@@ -20,7 +19,6 @@ export class DataStorageService {
   constructor(
     private httpClient: HttpClient, 
     private recipeService: RecipesService,
-    private authService: AuthService
   ) { }
 
   storeRecipes() {
