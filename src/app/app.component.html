@@ -1,10 +1,13 @@
-<app-header></app-header>
-<div class="container">
-  <toast-message></toast-message>
-  <div class="row">
-    <div class="col-md-12">
-      <!-- <button type="button" class="btn btn-success" (click)="testToast()">Test</button> -->
-      <router-outlet></router-outlet>
+<div class="main">
+  <app-header></app-header>
+  <div class="container">
+    <toast-message></toast-message>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <button type="button" class="btn btn-success" (click)="testToast()">Test</button> -->
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>
+<app-footer class="mt-auto"></app-footer>
