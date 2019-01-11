@@ -12,11 +12,13 @@ import { SharedModule } from "../shared/shared.module";
 // Interceptors
 import { AuthInterceptor } from "src/app/auth/auth.interceptor";
 import { LoggingInterceptor } from "src/app/_services/logging.interceptor";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
-        HomeComponent
+        HomeComponent,
+        FooterComponent
     ],
     imports: [
         SharedModule,
@@ -24,7 +26,8 @@ import { LoggingInterceptor } from "src/app/_services/logging.interceptor";
     ],
     exports: [
         AppRoutingModule,
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
